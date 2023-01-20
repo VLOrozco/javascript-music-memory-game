@@ -11,10 +11,18 @@ font-family: 'Nixie One', cursive; */
   box-sizing: border-box;
 }
 
-body {
+* {
   margin: 0;
   padding: 0;
-  height: 100vh;
+  font: inherit;
+}
+
+body {
+  min-height: 100vh;
   overflow: hidden;
-  
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
 }
