@@ -28,6 +28,7 @@
   margin: 0;
   padding: 0;
   font: inherit;
+  text-align: center;
 }
 
 body {
@@ -51,3 +52,28 @@ img, svg {
     scroll-behavior: auto !important;
   }
   }
+
+/* UTILITY CLASSES */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap, 1rem);
+  grid-template-rows: auto;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-spacing {
+  justify-content: space-between;
+}
+
+.container {
+  max-width: 85rem;
+  padding: 2em;
+}
