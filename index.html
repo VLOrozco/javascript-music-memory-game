@@ -15,9 +15,9 @@
   <!-- <script src="./main.js" defer></script> -->
 </head>
 <body>
-  <div id="container">
+  <div class="container">
 
-    <header>
+    <header class="flex flex-column">
 
       <h1>Music Memory Card Game</h1>
 
@@ -33,7 +33,7 @@
 
     <main id="memory-game">
 
-      <div class="game-info">
+      <div class="game-info flex flex-spacing">
 
         <div class="time-counter">
 
@@ -48,6 +48,17 @@
 
         </div>
         <!-- end .time-counter -->
+
+        <button class="reset">
+          <img 
+          src="./assets/rotate-right-solid.svg" 
+          alt="clock icon" 
+          width="25px">
+          <div id="reset">
+            Reset
+          </div>
+        </button>
+        <!-- end .reset button -->
 
         <div class="matches-count">
           <img 
@@ -64,7 +75,7 @@
       <!-- end .game-info -->
 
 
-      <div id="cards-grid">
+      <div id="cards-grid" class="grid">
 
         <div 
           class="front-card"
