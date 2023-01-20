@@ -116,3 +116,20 @@ img, svg {
 .fs-300 {
   line-height: 1.5;
 }
+
+
+/* COMPONENTS */
+
+.btn {
+  border: none;
+  padding: 0.3rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+  .btn:hover,
+  .btn:active {
+    color: hsl( var( --clr-white ) );
+    fill: hsl( var( --clr-white ) );
+  }
+
+
