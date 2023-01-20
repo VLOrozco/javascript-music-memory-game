@@ -31,7 +31,7 @@
 
 body {
   min-height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 img, svg {
@@ -138,8 +138,27 @@ img, svg {
 /* cards */
 .cards {
   cursor: pointer;
-  min-height: 13em;
+  min-height: 30em;
   min-width: 30rem;
   max-width: 60rem;
 }
+.front-card,
+.back-card {
+  border-radius: 0.5em;
+}
+  .back-card {
+    border: 3px solid black;
+  }
 
+/* card images */
+.front-card {
+  background-image: url("./assets/alexander-shatov-qt7S2QuAhJI-unsplash.jpg");
+}
+
+.image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
