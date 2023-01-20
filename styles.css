@@ -146,6 +146,10 @@ img, svg {
 .back-card {
   border-radius: 0.5em;
 }
+  .front-card:hover,
+  .front-card:active {
+    border: 3px solid hsl( var(--clr-white) );
+  }
   .back-card {
     border: 3px solid black;
   }
