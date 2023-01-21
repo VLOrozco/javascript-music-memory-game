@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Chathura:wght@100;300&family=Nixie+One&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="./styles.css">
 
-  <!-- <script src="./main.js" defer></script> -->
+  <script src="./main.js" defer></script>
 </head>
 <body class="bg-light text-dark ff-serif letter-spacing-1 fs-300 f-weight">
   <div class="container">
@@ -30,7 +30,6 @@
     </header>
     <!-- end header -->
 
-
     <main id="memory-game">
 
       <div class="game-info flex flex-spacing padding-bottom">
@@ -43,7 +42,8 @@
           width="25px">
 
           <div class="padding-left">
-            Time: <span id="counter"></span>
+            Time: 
+            <span id="minutes">00</span>:<span id="seconds">00</span>
           </div>
 
         </div>
@@ -72,81 +72,21 @@
       </div>
       <!-- end .game-info -->
 
-
       <div id="cards-grid" class="cards grid">
 
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/a-line.png" alt="">
-        </div>
+        <template id="tmpl">
+          <div class="memory-card pos-relative flex">
+            <div class="front-card image"></div>
+            <img class="back-card" src=""></img>
+          </div>
+        </template>
 
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/a-space.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/b-line.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/c-line.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/c-space.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/d-line.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/d-space.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/e-line.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/e-space.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/f-line.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/f-space.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/g-line.png" alt="">
-        </div>
-
-        <div class="memory-card pos-relative">
-          <div class="front-card image"></div>
-          <img class="back-card" src="./assets/images/g-space.png" alt="">
-        </div>
-        <!-- end of card 13 -->
-
+        <!-- end of card template -->
 
       </div>
       <!-- end of memory card game -->
 
     </main>
-
 
   </div>
 </body>
