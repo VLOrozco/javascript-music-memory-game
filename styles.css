@@ -31,7 +31,6 @@
 
 body {
   min-height: 100vh;
-  /* overflow: hidden; */
 }
 
 img, svg {
@@ -55,7 +54,7 @@ img, svg {
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--gap, 1rem);
+  gap: var(--gap, 0.5rem);
   grid-template-rows: auto;
   margin: auto;
 }
@@ -84,9 +83,12 @@ img, svg {
 .padding-left {
   padding-left: 0.6rem;
 }
-
 .padding-bottom {
   padding-bottom: 0.8rem;
+}
+
+.pos-relative {
+  position: relative;
 }
 
 /* COLORS */
@@ -137,14 +139,15 @@ img, svg {
 
 /* cards */
 .cards {
-  cursor: pointer;
-  min-height: 30em;
-  min-width: 30rem;
-  max-width: 60rem;
+  min-width: 538px;
+  max-width: 836px;
+  height: 75vh;
 }
 .front-card,
 .back-card {
+  position: absolute;
   border-radius: 0.5em;
+  cursor: pointer;
 }
   .front-card:hover,
   .front-card:active {
@@ -152,9 +155,11 @@ img, svg {
   }
   .back-card {
     border: 3px solid black;
+    width: 100%;
+    height: 100%;
   }
 
-/* card images */
+/* .front-card image */
 .front-card {
   background-image: url("./assets/alexander-shatov-qt7S2QuAhJI-unsplash.jpg");
 }
