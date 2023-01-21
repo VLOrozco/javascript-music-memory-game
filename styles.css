@@ -53,11 +53,16 @@ img, svg {
 /* UTILITY CLASSES */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--gap, 0.5rem);
   grid-template-rows: auto;
   margin: auto;
 }
+  @media (min-width: 680px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 
 .flex {
   display: flex;
@@ -77,7 +82,12 @@ img, svg {
 .container {
   margin: auto;
   max-width: 1046px;
-  padding: 2em;
+  padding: 2em 0.5em;
+}
+@media (min-width: 680px) {
+  .container {
+    padding: 2em 1em;
+  }
 }
 
 .padding-left {
@@ -139,10 +149,17 @@ img, svg {
 
 /* cards */
 .cards {
-  min-width: 538px;
-  max-width: 836px;
+  min-width: 458px;
+  max-width: 525px;
   height: 75vh;
 }
+  @media (min-width: 680px) {
+    .cards {
+      min-width: 625px;
+      max-width: 816px;
+    }
+  }
+
 .front-card,
 .back-card {
   position: absolute;
