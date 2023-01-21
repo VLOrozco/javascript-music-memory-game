@@ -51,14 +51,25 @@ img, svg {
 /* UTILITY CLASSES */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 5.4em);
+  grid-template-rows: repeat(3, 6.45em);
   gap: var(--gap, 0.5rem);
-  grid-template-rows: auto;
   margin: auto;
 }
   @media (min-width: 680px) {
     .grid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 7em);
+      grid-template-rows: repeat(4, 10rem);
+      gap: 1rem 2rem;
+      width: 652px;
+    }
+  }
+  @media (min-width: 868px) {
+    .grid {
+      grid-template-columns: repeat(4, 12rem);
+      grid-template-rows: repeat(4, 15.6rem);
+      gap: 1rem;
+      width: 100%;
     }
   }
 
@@ -144,7 +155,7 @@ img, svg {
 /* cards */
 .cards {
   min-width: 458px;
-  max-width: 525px;
+  max-width: 470px;
   height: 75vh;
 }
   @media (min-width: 680px) {
@@ -168,6 +179,8 @@ img, svg {
 .back-card {
   position: absolute;
   border-radius: 0.5em;
+  width: 100%;
+  height: 100%;
 }
   .front-card:hover,
   .front-card:active {
@@ -175,8 +188,6 @@ img, svg {
   }
   .back-card {
     border: 3px solid black;
-    width: 100%;
-    height: 100%;
     backface-visibility: hidden;
     transform: rotateY(180deg);
   }
@@ -190,6 +201,4 @@ img, svg {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-  width: 100%;
 }
