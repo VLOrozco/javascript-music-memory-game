@@ -84,11 +84,11 @@ img, svg {
   max-width: 1046px;
   padding: 2em 0.5em;
 }
-@media (min-width: 680px) {
-  .container {
-    padding: 2em 1em;
+  @media (min-width: 680px) {
+    .container {
+      padding: 2em 1em;
+    }
   }
-}
 
 .padding-left {
   padding-left: 0.6rem;
