@@ -154,11 +154,20 @@ img, svg {
     }
   }
 
+.memory-card {
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s linear;
+}
+  .memory-card.isflipped{
+    transform: translateX(-100%) rotateY(-180deg);
+  }
+
 .front-card,
 .back-card {
   position: absolute;
   border-radius: 0.5em;
-  cursor: pointer;
 }
   .front-card:hover,
   .front-card:active {
@@ -168,6 +177,8 @@ img, svg {
     border: 3px solid black;
     width: 100%;
     height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
   }
 
 /* .front-card image */
