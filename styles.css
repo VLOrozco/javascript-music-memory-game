@@ -12,7 +12,6 @@
   --ff-cursive: 'Nixie One', cursive;
 }
 
-
 /* RESET */
 *,
 *::before,
@@ -51,25 +50,22 @@ img, svg {
 /* UTILITY CLASSES */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 5.4em);
-  grid-template-rows: repeat(3, 6.45em);
-  gap: var(--gap, 0.5rem);
+  grid-template-columns: repeat(4, 4em);
+  grid-template-rows: repeat(5, 4em);
+  gap: 0.5rem;
   margin: auto;
 }
-  @media (min-width: 680px) {
+  @media (min-width: 720px) {
     .grid {
-      grid-template-columns: repeat(3, 7em);
-      grid-template-rows: repeat(4, 10rem);
-      gap: 1rem 2rem;
-      width: 652px;
+      grid-template-columns: repeat(5, 4.5em);
+      grid-template-rows: repeat(4, 4.5em);
     }
   }
-  @media (min-width: 868px) {
+  @media (min-width: 850px) {
     .grid {
-      grid-template-columns: repeat(4, 12rem);
-      grid-template-rows: repeat(4, 15.6rem);
-      gap: 1rem;
-      width: 100%;
+      grid-template-columns: repeat(5, 5.3em);
+      grid-template-rows: repeat(4, 5.3em);
+      gap: 0.8rem;
     }
   }
 
@@ -90,12 +86,22 @@ img, svg {
 
 .container {
   margin: auto;
-  max-width: 1046px;
-  padding: 2em 0.5em;
+  max-width: 850px;
+  padding: 1em 0.5em;
 }
   @media (min-width: 680px) {
     .container {
       padding: 2em 1em;
+    }
+  }
+  @media (min-width: 850px) {
+    .container {
+      padding: 1em;
+    }
+  }
+  @media (min-height: 875px) {
+    .container {
+      padding-top: 2.5em;
     }
   }
 
@@ -105,9 +111,21 @@ img, svg {
 .padding-bottom {
   padding-bottom: 0.8rem;
 }
+  @media (min-width: 850px) {
+    .padding-bottom {
+      padding-bottom: 0;
+    }
+  }
 
 .pos-relative {
   position: relative;
+}
+
+#memory-game {
+  max-width: 812px;
+}
+.game-info {
+  margin: 0.3em 1.3em;
 }
 
 /* COLORS */
@@ -136,8 +154,12 @@ img, svg {
   line-height: 1.5;
 }
 
-
 /* COMPONENTS */
+
+.time-counter,
+.matches-count {
+  pointer-events: none;
+}
 
 /* button */
 .btn {
@@ -154,16 +176,11 @@ img, svg {
 
 /* cards */
 .cards {
-  min-width: 458px;
-  max-width: 470px;
-  height: 85rem;
+  min-width: 480px;
+  max-width: 900px;
+  height: auto;
+  justify-content: center;
 }
-  @media (min-width: 680px) {
-    .cards {
-      min-width: 625px;
-      max-width: 816px;
-    }
-  }
 
 .memory-card {
   cursor: pointer;
@@ -181,6 +198,7 @@ img, svg {
   border-radius: 0.5em;
   width: 100%;
   height: 100%;
+  pointer-events: none;
 }
   .front-card:hover,
   .front-card:active {
