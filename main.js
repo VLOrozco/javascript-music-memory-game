@@ -1,30 +1,38 @@
-const template = document.querySelector('template');
+// Get DOM elements
 const cardsGrid = document.getElementById('cards-grid');
-const memoryCard = document.querySelector('.memory-card');
-const frontCard = document.querySelector('.front-card');
-const backCard = document.querySelector('.back-card');
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
+const resetBtn = document.querySelector('#reset');
+const matches = document.querySelector('#matches');
 
-// clone template content to reuse it multiple times
-var i;
-for (i=0; i < 12; i++) {
-  cardsGrid.append(template.content.cloneNode(true));
-};
+var second = 0;
+let matchCount = 0;
 
-// Generate the objects
+// Link text
+matches.textContent = matchCount;
+
+// Generate the object
 const getData = () => [
-  { imgSrc: "./assets/images/a-line.png", name: "a-line" },
   { imgSrc: "./assets/images/a-space.png", name: "a-space" },
   { imgSrc: "./assets/images/b-line.png", name: "b-line" },
-  { imgSrc: "./assets/images/c-line.png", name: "c-line" },
+  { imgSrc: "./assets/images/c-line.png", name: "middle-c" },
   { imgSrc: "./assets/images/c-space.png", name: "c-space" },
   { imgSrc: "./assets/images/d-line.png", name: "d-line" },
-  { imgSrc: "./assets/images/d-space.png", name: "d-space" },
   { imgSrc: "./assets/images/e-line.png", name: "e-line" },
   { imgSrc: "./assets/images/e-space.png", name: "e-space" },
   { imgSrc: "./assets/images/f-line.png", name: "f-line" },
   { imgSrc: "./assets/images/f-space.png", name: "f-space" },
   { imgSrc: "./assets/images/g-line.png", name: "g-line" },
-  { imgSrc: "./assets/images/g-space.png", name: "g-space" },
+  { imgSrc: "./assets/images/a-space.png", name: "a-space" },
+  { imgSrc: "./assets/images/b-line.png", name: "b-line" },
+  { imgSrc: "./assets/images/c-line.png", name: "middle-c" },
+  { imgSrc: "./assets/images/c-space.png", name: "c-space" },
+  { imgSrc: "./assets/images/d-line.png", name: "d-line" },
+  { imgSrc: "./assets/images/e-line.png", name: "e-line" },
+  { imgSrc: "./assets/images/e-space.png", name: "e-space" },
+  { imgSrc: "./assets/images/f-line.png", name: "f-line" },
+  { imgSrc: "./assets/images/f-space.png", name: "f-space" },
+  { imgSrc: "./assets/images/g-line.png", name: "g-line" },
 ];
 
 // Randomize
@@ -37,15 +45,97 @@ const randomize = () => {
 // Card Generator Function
 const cardGenerator = () => {
   const cardData = randomize();
-  
+
   cardData.forEach((item) => {
-    // Attach the data to the cards
+    // Generate the HTML for each cards
+    const card = document.createElement('div');
+    const frontCard = document.createElement('div');
+    const backCard = document.createElement('img');
+    card.classList = 'memory-card pos-relative flex';
+    frontCard.classList = 'front-card image';
+    backCard.classList = 'back-card';
+    cardsGrid.appendChild(card);
+    card.appendChild(frontCard);
+    card.appendChild(backCard);
+    // Attach the info to the cards
     backCard.src = item.imgSrc;
-    // Attach the cards to the cardsGrid
-    cardsGrid.appendChild(memoryCard);
-    memoryCard.appendChild(frontCard);memoryCard.appendChild(backCard);
+    card.setAttribute('name', item.name);
+
+    card.addEventListener('click', (e) => {
+      card.classList.toggle('isflipped');
+      checkCards(e);
+    });
   });
-  
 };
 
+// Check cards for match if 'flipped'
+const checkCards = (e) => {
+  const clickedCard = e.target;
+  clickedCard.classList.add('flipped');
+  const flippedCards = document.querySelectorAll('.flipped');
+  const isflipped = document.querySelectorAll('.isflipped');
+  console.log(flippedCards);
+
+  // Logic
+  if(flippedCards.length === 2) {
+    if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
+      console.log('match');
+      flippedCards.forEach(card => {
+        card.classList.remove('flipped');
+        card.style.pointerEvents = 'none';
+      });
+      matchCount++;
+      matches.textContent = matchCount;
+    } else {
+      console.log('not a match');
+      flippedCards.forEach(card => {
+        card.classList.remove('flipped');
+        setTimeout(() => card.classList.remove('isflipped'), 1000);
+      });
+    };
+  };
+
+  if(isflipped.length === 20) {
+    setTimeout(() => {
+      alert('🎶🎶You win!🎶🎶');
+      reset();
+    }, 1000);
+  };
+};
+
+// Reset function
+const reset = () => {
+  let cardData = randomize();
+  let backs = document.querySelectorAll('.back-card');
+  let cards = document.querySelectorAll('.memory-card');
+  cardsGrid.style.pointerEvents = 'none';
+  cardData.forEach((item, index) => {
+    cards[index].classList.remove('isflipped');
+    setTimeout(() => {
+      cards[index].style.pointerEvents = 'all';
+      backs[index].src = item.imgSrc;
+      cards[index].setAttribute('name', item.name);
+      cardsGrid.style.pointerEvents = 'all';
+    }, 1000);
+    let matchCount = 0;
+    matches.textContent = matchCount;
+  });
+};
+resetBtn.addEventListener('click', reset);
+
 cardGenerator();
+
+// if(checkCards === true) {
+
+
+//   function upTimer( count ) { 
+//     return count > 9 ? count : "0" + count; 
+//   }
+
+//   setInterval( function(){
+//     seconds.innerHTML = upTimer(++second % 60);
+//     minutes.innerHTML = upTimer(parseInt(second / 60, 10));
+//   }, 1000);
+
+
+// }
