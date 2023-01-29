@@ -24,9 +24,9 @@ As a music educator, I chose to use images that I teach my students for this mem
 
 ## Screenshots
 
-![screenshot site](./assets/starting-screenshot.png)
+<img src="./assets/starting-screenshot.png" width="300px">
 
-![screenshot site with quote for message](./assets/game-screenshot.png)
+<img src="./assets/game-screenshot.png" width="300px">
 
 ## Technologies
 
