@@ -55,6 +55,7 @@ img, svg {
   height: 100vh;
 }
   .start-cover {
+    display: block;
     cursor: pointer;
     position: absolute;
   }
@@ -67,8 +68,15 @@ img, svg {
     .start {
       z-index: 2;
       font-family: 'Moul', cursive;
-      font-size: 4.5em;
+      font-size: 2.5em;
     }
+      @media (min-width: 600px){
+        .start {
+          font-size: 4em;
+          max-width: 794px;
+          margin: auto;
+        }
+      }
 
 .grid {
   display: grid;
