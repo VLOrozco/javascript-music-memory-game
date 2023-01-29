@@ -90,12 +90,10 @@ const checkCards = (e) => {
   clickedCard.classList.add('flipped');
   const flippedCards = document.querySelectorAll('.flipped');
   const isflipped = document.querySelectorAll('.isflipped');
-  console.log(flippedCards);
 
   // Logic
   if(flippedCards.length === 2) {
     if(flippedCards[0].getAttribute('name') === flippedCards[1].getAttribute('name')) {
-      console.log('match');
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
         card.style.pointerEvents = 'none';
@@ -103,7 +101,6 @@ const checkCards = (e) => {
       matchCount++;
       matches.textContent = matchCount;
     } else {
-      console.log('not a match');
       flippedCards.forEach(card => {
         card.classList.remove('flipped');
         setTimeout(() => card.classList.remove('isflipped'), 1000);
