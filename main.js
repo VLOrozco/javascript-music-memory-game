@@ -1,12 +1,28 @@
 // Get DOM elements
+const startCover = document.querySelector('.start-cover');
 const cardsGrid = document.getElementById('cards-grid');
 const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 const resetBtn = document.querySelector('#reset');
 const matches = document.querySelector('#matches');
 
-var second = 0;
+let second = 0;
 let matchCount = 0;
+
+// Start Game
+const startGame = () => {
+  startCover.remove('div');
+
+  // Timer functionality when count is greater than the digit 9
+  function upTimer( count ) { 
+    return count > 9 ? count : "0" + count;
+  }
+  // Start Timer
+  setInterval( function(){
+    seconds.innerHTML = upTimer(++second % 60);
+    minutes.innerHTML = upTimer(parseInt(second / 60, 10));
+  }, 1000);
+};
 
 // Link text
 matches.textContent = matchCount;
@@ -109,6 +125,8 @@ const reset = () => {
   let backs = document.querySelectorAll('.back-card');
   let cards = document.querySelectorAll('.memory-card');
   cardsGrid.style.pointerEvents = 'none';
+  second = -1;
+
   cardData.forEach((item, index) => {
     cards[index].classList.remove('isflipped');
     setTimeout(() => {
@@ -121,21 +139,7 @@ const reset = () => {
     matches.textContent = matchCount;
   });
 };
+
 resetBtn.addEventListener('click', reset);
-
+startCover.addEventListener('click', startGame);
 cardGenerator();
-
-// if(checkCards === true) {
-
-
-//   function upTimer( count ) { 
-//     return count > 9 ? count : "0" + count; 
-//   }
-
-//   setInterval( function(){
-//     seconds.innerHTML = upTimer(++second % 60);
-//     minutes.innerHTML = upTimer(parseInt(second / 60, 10));
-//   }, 1000);
-
-
-// }
