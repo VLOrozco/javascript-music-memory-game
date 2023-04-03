@@ -161,6 +161,7 @@ img, svg {
 }
 .game-info {
   margin: 0.3em 1.3em;
+  min-width: 315px;
 }
 
 /* COLORS */
